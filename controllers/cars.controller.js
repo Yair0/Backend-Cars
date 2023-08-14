@@ -14,8 +14,8 @@ const getAllCars = async (_, res) => {
 const addCar = async (req, res) => {
   try {
     console.info({ action: `Adding ${req.body.model} to DB` });
-    const cars = await Cars.addCar(req.body);
-    return res.status(201).json(cars);
+    const carId = await Cars.addCar(req.body);
+    return res.status(201).json(carId);
   } catch (error) {
     console.error({ error });
     return res
