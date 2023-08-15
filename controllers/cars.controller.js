@@ -7,7 +7,7 @@ const getAllCars = async (_, res) => {
     return res.status(200).json({ cars });
   } catch (error) {
     console.error({ error });
-    return res.status(500).json({ error: "There are no cars available" });
+    return res.status(400).json({ message: "There are no cars available" });
   }
 };
 
@@ -19,8 +19,8 @@ const addCar = async (req, res) => {
   } catch (error) {
     console.error({ error });
     return res
-      .status(500)
-      .json({ error: "There was an error while saving car" });
+      .status(400)
+      .send({ message: "There was an error while saving car" });
   }
 };
 
